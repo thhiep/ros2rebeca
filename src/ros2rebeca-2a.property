@@ -1,0 +1,14 @@
+property{
+	define {
+		onTarget1 = r1.distance2target<=2;
+		done1 = r1.moves[0]>0 && r1.moves[0]-r1.moveidx<=2;
+		
+		onTarget2 = r1.distance2target<=2;
+		done2 = r2.moves[0]>0 && r2.moves[0]-r2.moveidx<=2;		
+	}
+	
+	Assertion{
+		reached_all: (!(done1 && onTarget1) || !(done2 && onTarget2)) ^ (done1 && onTarget1 && done2 && onTarget2);
+		//collision_free: !( (r1.rx==r2.rx && r1.ry==r2.ry) );
+	}
+}

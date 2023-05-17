@@ -1,11 +1,6 @@
 
 //ROS2 to Rebeca modelling
 
-//The source code contained herein is developed and owned by Hong Hiep Trinh (trinhhong.hiep@gmail.com)
-//for the master thesis project at Malardalens University (2021-2023).
-//Release date: 2023-05-17
-//(C) All rights reserved.
-
 //approximation threshold
 env double EPSILON = 0.01;
 env double INFINITY = 9999;
@@ -986,9 +981,16 @@ a[1204]=301.0;a[1205]=0.5150;a[1206]=-0.8572;a[1207]=-1.6643;a[1208]=302.0;a[120
 		rloc[i+3] = rdir;
 		rloc[i+4] = velocity;	
 		//collision check
+		double min_dist = ROBOT_WIDTH;
+		min_dist *= min_dist;
 		for(i=1;i<=rloc[0];i++){
 			if (i!=idx){
-				assertion(!(rx==rloc[4*(i-1)+1] && ry==rloc[4*(i-1)+2]),"Collision with another robot!");
+				int dx = rx-rloc[4*(i-1)+1];
+				int dy = ry-rloc[4*(i-1)+2];
+				double d = dx*dx + dy*dy;//to avoid using sqrt()
+				d*=MAP_RESOL;
+				assertion( d >= min_dist, "Collision with another robot!");
+				//assertion(!(rx==rloc[4*(i-1)+1] && ry==rloc[4*(i-1)+2]),"Collision with another robot!");
 			}
 		}
 	}

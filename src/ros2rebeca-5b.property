@@ -18,20 +18,6 @@ property{
 	
 	Assertion{
 		reached_all : (!(done1 && onTarget1) || !(done2 && onTarget2) || !(done3 && onTarget3) || !(done4 && onTarget4) || !(done5 && onTarget5)) 
-		^ (done1 && onTarget1 && done2 && onTarget2 && done3 && onTarget3 && done4 && onTarget4 && done5 && onTarget5);
-		
-		/*
-		collision_free: !( 
-			(r1.rx==r2.rx && r1.ry==r2.ry) 
-			||(r1.rx==r3.rx && r1.ry==r3.ry)
-			||(r1.rx==r4.rx && r1.ry==r4.ry)
-			||(r1.rx==r5.rx && r1.ry==r5.ry)
-			||(r2.rx==r3.rx && r2.ry==r3.ry)
-			||(r2.rx==r4.rx && r2.ry==r4.ry)
-			||(r2.rx==r5.rx && r2.ry==r5.ry)
-			||(r3.rx==r4.rx && r3.ry==r4.ry)
-			||(r3.rx==r5.rx && r3.ry==r5.ry)
-		);
-		*/
+		^ (done1 && onTarget1 && done2 && onTarget2 && done3 && onTarget3 && done4 && onTarget4 && done5 && onTarget5);		
 	}
 }

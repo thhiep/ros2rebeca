@@ -22,7 +22,7 @@ env int YMAX = MAP_WIDTH-1;
 env double ROBOT_WIDTH = 0.2; //in meters
 env double ROBOT_LENGTH = 0.2;
 env double SAFE_MARGIN = 0.02;	
-env double STOP_ZONE = 0.4;//bad value: 0.2		
+env double STOP_ZONE = 0.2;//bad value: 0.2		
 
 env int ANGLE_INC = 2; //angle increment in degrees, fixed value, do not change
 env int FIELD_OF_VIEW = 180;		//field of view (LIDAR sensor)
@@ -1314,20 +1314,19 @@ map[8][18]=true;map[8][19]=true;map[8][20]=true;map[8][21]=true;map[8][22]=true;
 
 main {
 	//good config
+	/*
 	@priority(5) Node r1(theMap):(1,15,5,48,45,2,1.5,1500,false);
 	@priority(4) Node r2(theMap):(2,25,5,48,35,2,0.7,1500,false);
 	@priority(3) Node r3(theMap):(3,5,25,48,25,2,0.7,1500,false);
 	@priority(2) Node r4(theMap):(4,5,35,48,15,2,0.8,1500,false);
 	@priority(6) Node r5(theMap):(5,5,45,48,5,2,1.2,1500,false);	
 	@priority(1) MapServer theMap(r1,r2,r3,r4,r5):(5);
-	
-	//bad config
-	/*
-	@priority(2) Node r1(theMap):(1,5,5,48,45,2,1.5,2500,false);
-	@priority(3) Node r2(theMap):(2,5,15,48,35,2,1.5,2500,false);
-	@priority(4) Node r3(theMap):(3,5,25,48,25,2,1.5,2500,false);
-	@priority(5) Node r4(theMap):(4,5,45,48,15,2,1.5,2500,false);
-	@priority(6) Node r5(theMap):(5,5,45,48,5,2,1.5,2500,false);	
-	@priority(1) MapServer theMap(r1,r2,r3,r4,r5):(5);
 	*/
+	//bad config
+	@priority(2) Node r1(theMap):(1,15,5,48,45,2,1.6,1500,false);
+	@priority(3) Node r2(theMap):(2,25,5,48,35,2,1.6,1500,false);
+	@priority(4) Node r3(theMap):(3,5,25,48,25,2,1.6,1500,false);
+	@priority(5) Node r4(theMap):(4,5,35,48,15,2,1.6,1500,false);
+	@priority(6) Node r5(theMap):(5,5,45,48,5,2,1.6,1500,false);	
+	@priority(1) MapServer theMap(r1,r2,r3,r4,r5):(5);
 }
